@@ -1,50 +1,43 @@
-
-name: CI for Static Website
-
-on:
+ 
   push:
     branches:
-      - main   # Trigger the workflow on push to main branch
-  pull_request:
-    branches:
       - main
-
+ 
+name: 🚀 Deploy website on push
+ 
 jobs:
-  validate:
-    name: Validate HTML & CSS
+  web-deploy:
+    name: 🎉 Deploy website
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
+    # helps  to get the latest code
+    - name: 🚚 Get latest code
       uses: actions/checkout@v4
-
-    - name: Validate HTML
-      uses: Cyb3r-Jak3/html5-validator-action@v1.7.1
+ 
+ 
+#
+ 
+    - name: 📦 Install HTMLHint
+      run: npm install -g htmlhint
+ 
+    - name: 🔍 Run HTMLHint on your code
+      run: htmlhint ./
+     # set up php
+    - name: 🔧 Set up PHP
+      uses: shivammathur/setup-php@v2
       with:
-        file: "index.html"
-
-    - name: Validate CSS
-      uses: josephdust/css-validator-action@v1
+        php-version: '8.0'
+ 
+       # validate php syntax
+    - name: Validate PHP syntax
+      run : |
+       find . -name "*.php" -print0 | xargs -0 -n1 php -l
+ 
+    - name: 📂 Sync files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        css_file: ".styles.css"  # Path to your CSS files
-
-deploy:
-    name: Deploy to GitHub Pages
-    needs: validate
-    runs-on: ubuntu-latest
-
-
-    steps:
-     -name: checkout code
-     uses: actions/checkout@v3
-
-    -name: Setup Github pages
-    uses: actions/configure-pages@v3
-
-    -name: Upload files
-    uses: actions/upload-pages-artifact@v1
-    with
-     path: ./
-
-
-       
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        
+ 
