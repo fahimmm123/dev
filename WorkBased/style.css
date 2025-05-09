@@ -1,0 +1,809 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #fffaf4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin-left: 20px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-list a:hover {
+    color: #e87c03;
+}
+/* Hero Banner */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    filter: brightness(65%);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 10px 20px;
+    background-color: #e87c03;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #c96500;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 5%;
+    background: #fff;
+}
+
+.about-image, .about-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 50%;
+    height: 50%;
+    border-radius: 0px;
+}
+
+.about-text h2 {
+    color: #e87c03;
+    margin-bottom: 15px;
+}
+
+/* Product Section */
+.special-offer {
+    padding: 50px 5%;
+    background: #fff8ec;
+    text-align: center;
+}
+
+.special-offer h2 {
+    margin-bottom: 30px;
+    color: #d76a00;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    height: 180px;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: #d76a00;
+}
+
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-selector input {
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.quantity-selector button {
+    padding: 5px 10px;
+    background: #e87c03;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.info-link:hover {
+    color: #e87c03;
+}
+
+.add-btn {
+    margin-top: 20px;
+    padding: 10px 40px;
+    background-color: #e87c03;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #c96500;
+}
+
+/* Testimonials */
+.testimonials {
+    background: #fef4e6;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #d76a00;
+    margin-bottom: 40px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.testimonial {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    font-style: italic;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Contact Teaser */
+.contact-teaser {
+    padding: 60px 5%;
+    text-align: center;
+    background: #fff;
+}
+
+.contact-teaser h2 {
+    margin-bottom: 10px;
+    color: #d76a00;
+}
+
+.contact-teaser p {
+    margin-bottom: 20px;
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    border: 2px solid #d76a00;
+    color: #d76a00;
+}
+
+.cta-btn.secondary:hover {
+    background: #d76a00;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #f6f6f6;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .search-form {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+}
+
+.main h2 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff6a00;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    
+}
+
+.main1 {
+    grid-column: 1 / span 1; /* Take up the first column */
+    grid-row: 1; /* Start at the first row */
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    background-color: black;
+    position: relative;
+}
+
+.main1 img {
+    width: 100%; /* Make the image take up the full width of the container */
+    height: 100%; /* Make the image take up the full height of the container */
+    object-fit: cover; /* Ensure the image covers the entire container without distortion */
+    display: block; /* Remove any space below the image */
+}
+
+.main2 {
+    grid-column: 2 / span 1; /* Take up the second column */
+    grid-row: 1; /* Start at the first row */
+    border-width: 3px;
+    border-style: solid;
+    background-color: rgb(255, 248, 248);
+    position: right;
+    padding: 10px;
+    background-color: #fffbfb;
+}
+.aboutus{
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 10px;
+    margin-right: 5%;
+    font-family: Roboto Condensed; 
+    font-size: 20px;
+
+}
+.aboutus h1 {
+    font-size: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    color: #636e72;
+    
+}
+/* Product Section Styles */
+.product-item-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 columns */
+    grid-template-rows: repeat(2, auto);    /* 2 rows */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    color: white;
+}
+
+.product-item {
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: #ff5722; /* Orange color for price */
+    margin-bottom: 15px;
+}
+
+/* Quantity Control */
+.quantity-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100px;
+    margin: 0 auto;   
+}
+
+.quantity-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: #e64a19;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn {
+    background-color: #282424;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #e64a19;
+}
+
+.add-to-cart-btn {
+    margin-top: 15px;
+    width: 250px;
+}
+
+.more-info-btn {
+    background-color: #282424;
+    margin-top: 10px;
+}
+
+.more-info-btn:hover {
+    background-color: #e64a19;
+}
+
+input {
+    border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    padding: 0;
+    
+  }
+  
+  p {
+    line-height: 1.5em;
+  }
+  
+  after { clear: both; }
+  
+  #login {
+    margin-top: 10%;
+    margin: 150px auto;
+    width: 320px;
+  }
+  
+  #login form {
+    margin: auto;
+    padding: 22px 22px 22px 22px;
+    width: 100%;
+    border-radius: 5px;
+    background: #f4f1e1; /* Light bakery-like color */
+    border-top: 3px solid #d1a24d; /* Subtle gold color */
+    border-bottom: 3px solid #d1a24d; /* Matching gold */
+  }
+  
+  #login form span {
+    background-color: #cfa200; /* Rich warm gold */
+    border-radius: 3px 0px 0px 3px;
+    border-right: 3px solid #d1a24d; /* Subtle gold */
+    color: white;
+    display: block;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+  }
+  
+  #login form input[type="text"] {
+    background-color: #f0e5d8; /* Soft light beige */
+    border-radius: 0px 3px 3px 0px;
+    color: #333333;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 50px;
+  }
+  
+  #login form input[type="password"] {
+    background-color: #f0e5d8; /* Soft light beige */
+    border-radius: 0px 3px 3px 0px;
+    color: #333333;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 60px;
+  }
+  
+  #login form input[type="submit"] {
+    background: #cfa200; /* Rich warm gold */
+    border: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  #login form input[type="submit"]:hover {
+    background: #d1a24d; /* Subtle gold hover effect */
+  }
+  
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+/* Header of the table */
+table th {
+    background-color: #444;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the buttons */
+.quantity-btn {
+    background-color: #282424;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Style for the quantity input box */
+.quantity-container input[type="number"] {
+    width: 25px; /* Adjust width as needed */
+    text-align: center;
+    padding: 5px;
+    margin: 0 10px; /* Space between the input and buttons */
+}
+#register {
+    margin-top: 10%;
+    margin: 150px auto;
+    width: 320px;
+}
+
+#register form {
+    margin: auto;
+    padding: 22px;
+    width: 100%;
+    border-radius: 5px;
+    background: #f4f1e1; /* Same as login form */
+    border-top: 3px solid #d1a24d; /* Gold tone */
+    border-bottom: 3px solid #d1a24d;
+}
+
+#register form span {
+    background-color: #cfa200;
+    border-radius: 3px 0 0 3px;
+    border-right: 3px solid #d1a24d;
+    color: white;
+    display: block;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+#register form input[type="text"],
+#register form input[type="email"],
+#register form input[type="password"] {
+    background-color: #f0e5d8;
+    border-radius: 0 3px 3px 0;
+    color: #333;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 50px;
+}
+
+#register form input[type="submit"] {
+    background: #cfa200;
+    border: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#register form input[type="submit"]:hover {
+    background: #d1a24d;
+}
+
+/* Error message styling */
+.error {
+    color: red; /* Red color for error message */
+    font-size: 14px; /* Font size of the error message */
+    margin-top: 10px; /* Space above error message */
+}
+.product-container1 {
+    text-align: center;
+    margin: 20px;
+}
+
+.product-container1 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+.product-name {
+    color: #ff9800;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Styling for the Description Box */
+.product-description {
+    font-size: 16px;
+    color: #f1e2e2;
+    background-color: #fff; /* Light background for the box */
+    padding: 20px;
+    margin-top: 20px;
+    line-height: 1.6;
+    border-radius: 10px;
+    border: 2px solid #ff9800; /* Border with a matching color */
+    max-width: 600px; /* Restrict the width */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Left align text for better readability */
+}
+
+.product-description p {
+    margin: 0; /* Prevents any unwanted spacing between paragraphs */
+}
+
+.product-item p {
+    font-family: 'Permanent Marker', cursive; /* A fun, handwritten-style font */
+    font-size: 18px; /* Make the product name font size slightly larger */
+    color: #f1e9e9; /* Dark gray color for the text */
+    font-weight: bold; /* Make the product name bold */
+    text-align: center; /* Center-align the product name */
+    margin-top: 10px; /* Space between the image and the<br>quantity-btn name */
+    margin-bottom: 10px; /* Space between the name and the price */
+    text-transform: capitalize; /* Ensure product names are capitalized */
+    font-size: 2em;
+}
+.process-form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.process-form input[type="submit"] {
+    padding: 15px 30px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.process-form input[type="submit"]:hover {
+    background-color: #ff9800;
+}
+/* Overall form container styling */
+.search-form {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+  
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    width:500px;
+}
+
+.search-form button {
+   width:100px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #f4b400;
+    color: white;
+    cursor: pointer;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: rgb(196, 132, 14);
+    color: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+  }
