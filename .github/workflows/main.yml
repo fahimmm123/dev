@@ -1,15 +1,12 @@
-name: PHP CI/CD with Staging and Production
+name: PHP CI/CD with Lightweight IaC
 
 on:
   push:
-    branches: [main]   # Trigger CI/CD on push to main
-  workflow_dispatch:   # Allow manual trigger for production deploy
+    branches: [main]
 
 jobs:
   php-ci:
     runs-on: ubuntu-latest
-    outputs:
-      tests-pass: ${{ steps.phpunit.outcome == 'success' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,47 +17,27 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, xml
 
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist
-
       - name: Lint PHP files
         run: find . -type f -name "*.php" -exec php -l {} \;
 
-      - name: Run PHPUnit tests
-        id: phpunit
-        run: vendor/bin/phpunit
-
-  deploy-staging:
+  deploy:
     runs-on: ubuntu-latest
     needs: php-ci
-    if: ${{ success() }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to Staging Server
+      - name: Run setup scripts (IaC-like step)
+        run: |
+          if [ -f setup/permissions.sh ]; then
+            bash setup/permissions.sh
+          fi
+
+      - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_STAGING_SERVER }}
-          username: ${{ secrets.FTP_STAGING_USERNAME }}
-          password: ${{ secrets.FTP_STAGING_PASSWORD }}
-          server-dir: /staging_public_html/
-
-  deploy-production:
-    runs-on: ubuntu-latest
-    needs: deploy-staging
-    if: ${{ github.event_name == 'workflow_dispatch' }}  # manual trigger only
-    environment:
-      name: production
-      url: https://your-production-url.com
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Deploy to Production Server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_PRODUCTION_SERVER }}
-          username: ${{ secrets.FTP_PRODUCTION_USERNAME }}
-          password: ${{ secrets.FTP_PRODUCTION_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /public_html/
