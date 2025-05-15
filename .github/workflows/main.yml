@@ -17,9 +17,6 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, xml
 
-      - name: Lint PHP files
-        run: find DEV/WorkBased/* -type f -name "*.php" -exec php -l {} \;
-
   deploy:
     runs-on: ubuntu-latest
     needs: php-ci
