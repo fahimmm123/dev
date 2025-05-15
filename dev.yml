@@ -25,5 +25,5 @@ jobs:
       - name: Validate CSS
         uses: josephdust/css-validator-action@v1
         with:
-          css_file: "styles.css"  # Removed dot prefix, make sure path is correct
+          css_file: "styles.css"  # Removed dot prefix, make sure path is correc
 
