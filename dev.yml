@@ -42,4 +42,4 @@ jobs:
       - name: Upload files
         uses: actions/upload-pages-artifact@v1
         with:
-          path: DEV  # Make sure this points to the built/static site folder
+          path: DEV/WorkBased  # Make sure this points to the built/static site folder
