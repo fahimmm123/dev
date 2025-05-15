@@ -14,36 +14,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Validate HTML
-      uses: Cyb3r-Jak3/html5-validator-action@v1.7.1
-      with:
-        file: "index.html"
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5-validator-action@v1.7.1
+        with:
+          file: "index.html"  # Adjust this if validating multiple files
 
-    - name: Validate CSS
-      uses: josephdust/css-validator-action@v1
-      with:
-        css_file: ".styles.css"  # Path to your CSS files
+      - name: Validate CSS
+        uses: josephdust/css-validator-action@v1
+        with:
+          css_file: "styles.css"  # Removed dot prefix, make sure path is correct
 
-deploy:
+  deploy:
     name: Deploy to GitHub Pages
     needs: validate
     runs-on: ubuntu-latest
 
-
     steps:
-     -name: checkout code
-     uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    -name: Setup Github pages
-    uses: actions/configure-pages@v3
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v3
 
-    -name: Upload files
-    uses: actions/upload-pages-artifact@v1
-    with:
-      path: ./
-
-
-       
+      - name: Upload files
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./  # Make sure this points to the built/static site folder
