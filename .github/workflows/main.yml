@@ -18,14 +18,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate HTML
-        uses: Cyb3r-Jak3/html5-validator-action@v1.7.1
+        uses: Cyb3r-Jak3/html5-validator-action@v1
         with:
-          file: "DEV/index.html"  # Adjusted path
+          file: "DEV/WorkBased/index.html"  # Path to your HTML file
 
       - name: Validate CSS
         uses: josephdust/css-validator-action@v1
         with:
-          css_file: "DEV/styles.css"  # Adjusted path
+          css_file: "DEV/WorkBased/styles.css"  # Path to your CSS file
 
   deploy:
     name: Deploy to GitHub Pages
@@ -42,4 +42,4 @@ jobs:
       - name: Upload files
         uses: actions/upload-pages-artifact@v1
         with:
-          path: DEV/WorkBased  # Upload the DEV folder content to GitHub Pages
+          path: DEV/WorkBased  # Folder to publish on GitHub Pages
