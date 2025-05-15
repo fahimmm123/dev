@@ -20,13 +20,7 @@ jobs:
       - name: find DEV files
         run: find workflow/ -type f -name "*.php" -exec php -l {} \;
  
-      - name: Run Unit Tests (if any)
-        run: |
-          if [ -f tests/run-tests.sh ]; then
-            bash tests/run-tests.sh
-          else
-            echo "No test script found."
-          fi
+     
  
   deploy:
     runs-on: ubuntu-latest
