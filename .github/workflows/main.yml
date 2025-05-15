@@ -18,7 +18,7 @@ jobs:
           extensions: mbstring, xml
 
       - name: Lint PHP files
-        run: find DEV/WorkBased/ -type f -name "*.php" -exec php -l {} \;
+        run: find DEV/WorkBased/* -type f -name "*.php" -exec php -l {} \;
 
   deploy:
     runs-on: ubuntu-latest
