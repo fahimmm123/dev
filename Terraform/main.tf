@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-north-1"
+  region = "eu-north-1"
 }
 
 resource "aws_instance" "php_server" {
